@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 580484128185079321}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.87775, y: 3.5259843, z: -3.6275656}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1302,8 +1302,12 @@ MonoBehaviour:
   m_VersionIndex: 1776
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedEdges:
+  - a: 15
+    b: 14
+  - a: 17
+    b: 19
+  m_SelectedVertices: 0f0000000e0000001100000013000000
 --- !u!114 &4200487146129760980
 MonoBehaviour:
   m_ObjectHideFlags: 0
