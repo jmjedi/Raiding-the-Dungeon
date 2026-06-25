@@ -20,10 +20,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("SLOPE SETTINGS")]
     [SerializeField] private LayerMask floorMask;
-    [SerializeField] private float rayDist = 2.0f;
-    [SerializeField] private float alignmentSpeed = 10f;
+    [SerializeField] private float rayDist = 3.0f;
+    [SerializeField] private float maxSlopeAngle = 50f;
 
     private bool canDodge = true;
+
+    //SLOPE BASED
+    public bool isGrounded;
+    public bool isOnSlope;
+    public float currentSlopeAngle;
+    private Vector3 slopeMoveDir;
+
+    private RaycastHit slopeHit;
 
     private void Awake()
     {
@@ -52,20 +60,49 @@ public class PlayerController : MonoBehaviour
 
         Vector3 moveVector = transform.TransformDirection(PlayerMovementInput) * Speed;
 
+        if (isOnSlope)
+        {
+            float ogSpd = moveVector.magnitude / 2;
+            moveVector = Vector3.ProjectOnPlane(moveVector, slopeHit.normal).normalized * ogSpd;
+        }
+
         PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
+        CheckGroundAndSlope();
     }
 
     private void FixedUpdate()
     {
+        
         Vector3 gravityForce = Physics.gravity * FallForce;
         PlayerBody.AddForce(gravityForce, ForceMode.Acceleration);
         ///AlignWithFloor();
     }
 
+    private void CheckGroundAndSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, rayDist, floorMask))
+        {
+            isGrounded = true;
+
+            currentSlopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            if (currentSlopeAngle > 0 && currentSlopeAngle <= maxSlopeAngle)
+                isOnSlope = true;
+            else
+                isOnSlope = false;
+        }
+        else
+        {
+            isGrounded = false;
+            isOnSlope = false;
+            currentSlopeAngle = 0f;
+        }
+
+    }
+
     private void DodgeActive(InputAction.CallbackContext context)
     {
-        Speed = Speed * 7.5f;
-        Invoke(nameof(resetDodge), 0.076f);
+        Speed = Speed * 7;
+        Invoke(nameof(resetDodge), 0.05f);
         canDodge = false;
     }
     private void DodgeReleased(InputAction.CallbackContext context)
@@ -75,22 +112,17 @@ public class PlayerController : MonoBehaviour
 
     private void resetDodge()
     {
-        Speed = Speed / 7.5f;
+        Speed = Speed / 7;
     }
-    private void AlignWithFloor()
+
+    private void newFloorAlign()
     {
+        Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, rayDist, floorMask))
-        {
-            Vector3 forwardProjection = Vector3.ProjectOnPlane(transform.forward, hit.normal);
-            Quaternion targetRotation = Quaternion.LookRotation(forwardProjection, hit.normal);
-            
-            PlayerBody.MoveRotation(Quaternion.Slerp(PlayerBody.rotation, targetRotation, alignmentSpeed * Time.fixedDeltaTime));
-        }
+
+        if (Physics.Raycast(ray, out hit, rayDist, floorMask))
+            transform.up = hit.normal;
         else
-        {
-            Quaternion uprightRotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, Vector3.up), Vector3.up);
-            PlayerBody.MoveRotation(Quaternion.Slerp(PlayerBody.rotation, uprightRotation, alignmentSpeed * Time.fixedDeltaTime));
-        }
+            transform.up = Vector3.up;
     }
 }
