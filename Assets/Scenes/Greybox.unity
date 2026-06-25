@@ -727,6 +727,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1644335625}
+    - target: {fileID: 850576369802168003, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 884
+      objectReference: {fileID: 0}
     - target: {fileID: 1069525382543962930, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -783,6 +787,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1883230358}
+    - target: {fileID: 4451922612474850707, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2342
+      objectReference: {fileID: 0}
     - target: {fileID: 8726719584079487396, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -804,6 +812,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 108988110}
+    - target: {fileID: 219684453159120482, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2194
+      objectReference: {fileID: 0}
     - target: {fileID: 344565127094985098, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       propertyPath: m_Name
       value: Small Room (1)
@@ -864,6 +876,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 855190059}
+    - target: {fileID: 7148893359586062788, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1813
+      objectReference: {fileID: 0}
     - target: {fileID: 7157206311671595988, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1283,6 +1299,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 383694356}
+    - target: {fileID: 850576369802168003, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 884
+      objectReference: {fileID: 0}
     - target: {fileID: 1069525382543962930, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1339,6 +1359,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2039054772}
+    - target: {fileID: 4451922612474850707, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2342
+      objectReference: {fileID: 0}
     - target: {fileID: 8726719584079487396, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1626,6 +1650,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 938781547}
     - target: {fileID: 1092248739478844264, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
+      propertyPath: m_VersionIndex
+      value: 3086
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092248739478844264, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_SelectedEdges.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1689,6 +1717,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1192310494}
+    - target: {fileID: 4737872853371163356, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2986
+      objectReference: {fileID: 0}
     - target: {fileID: 5068546787796490864, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1701,6 +1733,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1277655222}
+    - target: {fileID: 8375028673715463457, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2058,7 +2094,7 @@ PrefabInstance:
       objectReference: {fileID: 89472677}
     - target: {fileID: 1092248739478844264, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_VersionIndex
-      value: 3460
+      value: 3463
       objectReference: {fileID: 0}
     - target: {fileID: 1092248739478844264, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -2126,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 1771736946}
     - target: {fileID: 4737872853371163356, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_VersionIndex
-      value: 2811
+      value: 2814
       objectReference: {fileID: 0}
     - target: {fileID: 4737872853371163356, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -3298,7 +3334,7 @@ PrefabInstance:
       objectReference: {fileID: 528403090}
     - target: {fileID: 8375028673715463457, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_VersionIndex
-      value: 4190
+      value: 4193
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3646,11 +3682,15 @@ PrefabInstance:
     - target: {fileID: 98132258668693167, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 383694356}
+      objectReference: {fileID: 1288781505}
     - target: {fileID: 850576369802168003, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1288781505}
+    - target: {fileID: 850576369802168003, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 884
+      objectReference: {fileID: 0}
     - target: {fileID: 1069525382543962930, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -3707,10 +3747,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1409346916}
+    - target: {fileID: 4451922612474850707, guid: 1e258b937dffa11478346af411d38848, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2342
+      objectReference: {fileID: 0}
     - target: {fileID: 8726719584079487396, guid: 1e258b937dffa11478346af411d38848, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2039054772}
+      objectReference: {fileID: 1409346916}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4223,6 +4267,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 128641565}
+    - target: {fileID: 219684453159120482, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2194
+      objectReference: {fileID: 0}
     - target: {fileID: 344565127094985098, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       propertyPath: m_Name
       value: Small Room
@@ -4283,6 +4331,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1229165101}
+    - target: {fileID: 7148893359586062788, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+      propertyPath: m_VersionIndex
+      value: 1813
+      objectReference: {fileID: 0}
     - target: {fileID: 7157206311671595988, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4805,7 +4857,7 @@ PrefabInstance:
       objectReference: {fileID: 923121310}
     - target: {fileID: 1665218166952933876, guid: 756580bfdb351134ebd2e66aa8526454, type: 3}
       propertyPath: m_VersionIndex
-      value: 1794
+      value: 1797
       objectReference: {fileID: 0}
     - target: {fileID: 1665218166952933876, guid: 756580bfdb351134ebd2e66aa8526454, type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -4941,7 +4993,7 @@ PrefabInstance:
       objectReference: {fileID: 1731156065}
     - target: {fileID: 8389667519245077561, guid: 756580bfdb351134ebd2e66aa8526454, type: 3}
       propertyPath: m_VersionIndex
-      value: 2937
+      value: 2940
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
