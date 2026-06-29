@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     //Flags
     private bool canDodge = true;
+    private bool damage = false;
 
     //SLOPE BASED
     public bool isGrounded;
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
     {
         //Enable Controls
         controls.Gameplay.Enable();
+
+        //Keybinds Enabled
         if (canDodge)
             controls.Gameplay.Dodge.started += DodgeActive;
 
@@ -76,31 +79,39 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //Normal Velocity
-            PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
+            if (damage) //If we have been hit, move backwards
+                PlayerBody.AddForce(-transform.forward * 30f, ForceMode.Impulse);
+            else
+                //Normal Velocity
+                PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
         }
 
+        //Use check ground function
         CheckGroundAndSlope();
     }
 
     private void FixedUpdate()
     {
+        //Player Gravity
         Vector3 gravityForce = Physics.gravity * FallForce;
         PlayerBody.AddForce(gravityForce, ForceMode.Acceleration);
     }
 
     private void CheckGroundAndSlope()
     {
+        //Check if we are on the ground
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, rayDist, floorMask))
         {
             isGrounded = true;
 
+            //Check the angle below
             currentSlopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
-            if (currentSlopeAngle > 0 && currentSlopeAngle <= maxSlopeAngle)
+            if (currentSlopeAngle > 0 && currentSlopeAngle <= maxSlopeAngle) //Check if angle is greater than 0
                 isOnSlope = true;
-            else
+            else //Otherwise, we are on normal ground
                 isOnSlope = false;
         }
+        //Otherwise, we are airborne
         else
         {
             isGrounded = false;
@@ -110,23 +121,39 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Damaged()
+    {
+        //We are hit
+        damage = true;
+        Invoke(nameof(notDamaged), 0.1f);
+    }
+
+    private void notDamaged()
+    {
+        //Reset hit flag
+        damage = false;
+    }
+
     private void DodgeActive(InputAction.CallbackContext context)
     {
+        //We have dodged
         Speed = Speed * 7;
         Invoke(nameof(resetDodge), 0.05f);
         canDodge = false;
     }
     private void DodgeReleased(InputAction.CallbackContext context)
     {
+        //Can dodge now after we have released the dodge button
         canDodge = true;
     }
 
     private void resetDodge()
     {
+        //Reset player dodge state
         Speed = Speed / 7;
     }
 
-    private void newFloorAlign()
+    private void newFloorAlign() //UNUSED
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
