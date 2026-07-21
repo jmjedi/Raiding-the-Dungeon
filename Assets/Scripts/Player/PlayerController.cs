@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour
         damage = true;
         print(hitSide);
         knockback_side = hitSide;
-        Invoke(nameof(notDamaged), 0.1f);
+        Invoke(nameof(notDamaged), 0.15f);
     }
 
     private void notDamaged()
@@ -187,10 +187,15 @@ public class PlayerController : MonoBehaviour
     private void AttackActive(InputAction.CallbackContext context)
     {
         if (attack_debounce > 0) return;
-        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-        GameObject spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+        GameObject spawnedObject;
 
-        attack_debounce = 0.5f;
+        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        if (moveInput.x == 0 && moveInput.y == 0)
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(0, 0, 1.5f), Quaternion.identity);
+        else
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+
+        attack_debounce = 0.4f;
         Destroy(spawnedObject, 0.1f);
     }
 
