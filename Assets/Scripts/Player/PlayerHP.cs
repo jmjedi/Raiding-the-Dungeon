@@ -7,11 +7,13 @@ public class PlayerHP : MonoBehaviour
     public float maxHP = 100;
     private float HP;
     public float hit_debounce;
+    private PlayerUI plrUI;
 
     private void Start()
     {
         //Set player HP
         HP = maxHP;
+        plrUI = Object.FindAnyObjectByType<PlayerUI>();
     }
 
     public float GetHP()
@@ -39,6 +41,7 @@ public class PlayerHP : MonoBehaviour
         hit_debounce = 2f;
         PlayerController playerControl = GetComponent<PlayerController>();
         playerControl.BlinkChar();
+        plrUI.ChangeHP(HP);
         
         if (playerControl != null)
             playerControl.Damaged(hitSide);

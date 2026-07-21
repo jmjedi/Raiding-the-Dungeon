@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput controls;
     private Vector2 moveInput;
     private Vector3 PlayerMovementInput;
+    private PlayerUI plrUI;
 
     //Get Components
     [SerializeField] private Rigidbody PlayerBody;
