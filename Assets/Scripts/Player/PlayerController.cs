@@ -11,10 +11,14 @@ public class PlayerController : MonoBehaviour
     private PlayerInput controls;
     private Vector2 moveInput;
     private Vector3 PlayerMovementInput;
+    private PlayerUI plrUI;
+    public float Gold = 0f;
 
     //Get Components
+    [Header("OBJECT REQUIREMENTS")]
     [SerializeField] private Rigidbody PlayerBody;
     [SerializeField] private Transform FeetTransform;
+    [SerializeField] private GameObject attackOBJ;
 
     [Header("PLAYER VALUES")]
     [SerializeField] private float Speed;
@@ -32,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     //Cooldowns
     private float dodge_debounce;
+    private float attack_debounce;
 
     //SLOPE BASED
     public bool isGrounded;
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
+        controls.Gameplay.Attack.started += AttackActive;
     }
 
     private void OnDisable()
@@ -104,7 +110,11 @@ public class PlayerController : MonoBehaviour
 
 
         if (dodge_debounce > 0)
-            dodge_debounce -= 1f * Time.deltaTime;       
+            dodge_debounce -= 1f * Time.deltaTime;
+
+        if (attack_debounce > 0)
+            attack_debounce -= 1f * Time.deltaTime;
+
         //Use check ground function
         CheckGroundAndSlope();
         newFloorAlign();
@@ -165,13 +175,28 @@ public class PlayerController : MonoBehaviour
         damage = true;
         print(hitSide);
         knockback_side = hitSide;
-        Invoke(nameof(notDamaged), 0.1f);
+        Invoke(nameof(notDamaged), 0.15f);
     }
 
     private void notDamaged()
     {
         //Reset hit flag
         damage = false;
+    }
+
+    private void AttackActive(InputAction.CallbackContext context)
+    {
+        if (attack_debounce > 0) return;
+        GameObject spawnedObject;
+
+        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        if (moveInput.x == 0 && moveInput.y == 0)
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(0, 0, 1.5f), Quaternion.identity);
+        else
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+
+        attack_debounce = 0.4f;
+        Destroy(spawnedObject, 0.1f);
     }
 
     private void DodgeActive(InputAction.CallbackContext context)
