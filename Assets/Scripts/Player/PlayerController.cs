@@ -12,10 +12,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Vector3 PlayerMovementInput;
     private PlayerUI plrUI;
+    public float Gold = 0f;
 
     //Get Components
+    [Header("OBJECT REQUIREMENTS")]
     [SerializeField] private Rigidbody PlayerBody;
     [SerializeField] private Transform FeetTransform;
+    [SerializeField] private GameObject attackOBJ;
 
     [Header("PLAYER VALUES")]
     [SerializeField] private float Speed;
@@ -33,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     //Cooldowns
     private float dodge_debounce;
+    private float attack_debounce;
 
     //SLOPE BASED
     public bool isGrounded;
@@ -55,6 +59,7 @@ public class PlayerController : MonoBehaviour
 
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
+        controls.Gameplay.Attack.started += AttackActive;
     }
 
     private void OnDisable()
@@ -105,7 +110,11 @@ public class PlayerController : MonoBehaviour
 
 
         if (dodge_debounce > 0)
-            dodge_debounce -= 1f * Time.deltaTime;       
+            dodge_debounce -= 1f * Time.deltaTime;
+
+        if (attack_debounce > 0)
+            attack_debounce -= 1f * Time.deltaTime;
+
         //Use check ground function
         CheckGroundAndSlope();
         newFloorAlign();
@@ -173,6 +182,16 @@ public class PlayerController : MonoBehaviour
     {
         //Reset hit flag
         damage = false;
+    }
+
+    private void AttackActive(InputAction.CallbackContext context)
+    {
+        if (attack_debounce > 0) return;
+        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        GameObject spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+
+        attack_debounce = 0.5f;
+        Destroy(spawnedObject, 0.1f);
     }
 
     private void DodgeActive(InputAction.CallbackContext context)

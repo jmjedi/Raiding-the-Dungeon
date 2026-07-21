@@ -7,10 +7,11 @@ public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI HPTEXT;
     [SerializeField] private TextMeshProUGUI GOLDTEXT;
+    private PlayerController plrController;
 
     private void Awake()
     {
-        
+        plrController = Object.FindAnyObjectByType<PlayerController>();
     }
     public void ChangeHP(float Value)
     {
@@ -19,6 +20,7 @@ public class PlayerUI : MonoBehaviour
 
     public void ChangeGold(float Value)
     {
-        GOLDTEXT.text = Value.ToString();
+        plrController.Gold += Value;
+        GOLDTEXT.text = plrController.Gold.ToString();
     }
 }

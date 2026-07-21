@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1191849713453945012}
   - component: {fileID: 8494292753263349649}
   - component: {fileID: 7115848863766640971}
-  - component: {fileID: 7198172555552248679}
+  - component: {fileID: 3525255765402024221}
+  - component: {fileID: 6831362270617850591}
   m_Layer: 0
   m_Name: Collectable Placeholder
   m_TagString: Untagged
@@ -248,7 +249,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2407
+  m_VersionIndex: 2413
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -331,8 +332,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5307154926939838558}
   m_Mesh: {fileID: 0}
---- !u!64 &7198172555552248679
-MeshCollider:
+--- !u!114 &3525255765402024221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307154926939838558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50bf8446696402b4988152ecce394b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6831362270617850591
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -348,8 +361,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: -0.25, y: 0.25, z: -0.25}
