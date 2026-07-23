@@ -105,8 +105,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //Normal Velocity
-                PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
-            }
+             }
         }
 
         if (dodge_debounce > 0)

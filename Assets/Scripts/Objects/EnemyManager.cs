@@ -38,9 +38,12 @@ public class EnemyManager : MonoBehaviour
     {
         if (attack_debounce > 0) return;
         Vector3 worldOffset = transform.rotation * new Vector3(0, 0, 1.5f);
-        GameObject spawnedObject = Instantiate(attackObj, transform.position + worldOffset, transform.rotation);
+        if (attackObj != null)
+        {
+            GameObject spawnedObject = Instantiate(attackObj, transform.position + worldOffset, transform.rotation);
 
-        attack_debounce = 1.7f;
-        Destroy(spawnedObject, 0.1f);
+            attack_debounce = 1.7f;
+            Destroy(spawnedObject, 0.1f);
+        }
     }
 }
