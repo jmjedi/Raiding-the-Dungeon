@@ -11,14 +11,19 @@ public class PlayerController : MonoBehaviour
     private PlayerInput controls;
     private Vector2 moveInput;
     private Vector3 PlayerMovementInput;
+    private PlayerUI plrUI;
+    public float Gold = 0f;
 
     //Get Components
+    [Header("OBJECT REQUIREMENTS")]
     [SerializeField] private Rigidbody PlayerBody;
     [SerializeField] private Transform FeetTransform;
+    [SerializeField] private GameObject attackOBJ;
 
     [Header("PLAYER VALUES")]
     [SerializeField] private float Speed;
     [SerializeField] private float FallForce;
+    [SerializeField] private float hitKnockback;
 
     [Header("SLOPE SETTINGS")]
     [SerializeField] private LayerMask floorMask;
@@ -26,8 +31,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxSlopeAngle = 50f;
 
     //Flags
-    private bool canDodge = true;
     private bool damage = false;
+    private string knockback_side = null;
+
+    //Cooldowns
+    private float dodge_debounce;
+    private float attack_debounce;
 
     //SLOPE BASED
     public bool isGrounded;
@@ -49,10 +58,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Enable();
 
         //Keybinds Enabled
-        if (canDodge)
-            controls.Gameplay.Dodge.started += DodgeActive;
-
-        controls.Gameplay.Dodge.canceled += DodgeReleased;
+        controls.Gameplay.Dodge.started += DodgeActive;
+        controls.Gameplay.Attack.started += AttackActive;
     }
 
     private void OnDisable()
@@ -79,15 +86,38 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (damage) //If we have been hit, move backwards
-                PlayerBody.AddForce(-transform.forward * 30f, ForceMode.Impulse);
+            if (damage) //If we have been hit, push the player away from the hitbox
+            {
+                if (knockback_side == "Left") //Move right
+                    PlayerBody.AddForce(transform.right * hitKnockback, ForceMode.Impulse);
+                else if (knockback_side == "Right") //Move Left
+                    PlayerBody.AddForce(-transform.right * hitKnockback, ForceMode.Impulse);
+                else if (knockback_side == "Back") // Move back
+                    PlayerBody.AddForce(transform.forward * hitKnockback, ForceMode.Impulse);
+                else if (knockback_side == "Front") // Move Foward
+                    PlayerBody.AddForce(-transform.forward * hitKnockback, ForceMode.Impulse);
+                else if (knockback_side == "Top") //Move Up (UNUSED)
+                    PlayerBody.AddForce(transform.up * hitKnockback, ForceMode.Impulse);
+                else if (knockback_side == "Bottom") // Move Down (UNUSED)
+                    PlayerBody.AddForce(-transform.up * hitKnockback, ForceMode.Impulse);
+            }
             else
+            {
                 //Normal Velocity
                 PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
+            }
         }
+
+
+        if (dodge_debounce > 0)
+            dodge_debounce -= 1f * Time.deltaTime;
+
+        if (attack_debounce > 0)
+            attack_debounce -= 1f * Time.deltaTime;
 
         //Use check ground function
         CheckGroundAndSlope();
+        newFloorAlign();
     }
 
     private void FixedUpdate()
@@ -121,11 +151,31 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void Damaged()
+    public void BlinkChar()
+    {
+       //InvokeRepeating("StartBlink", 0, 0.4f);
+    }
+
+    private void StartBlink()
+    {
+        print("BLINKING");
+        Renderer targetRender = GetComponent<Renderer>();
+        targetRender.enabled = !targetRender;
+    }
+
+    public void ResetBlink()
+    {
+        Renderer targetRender = GetComponent<Renderer>();
+        targetRender.enabled = true;
+    }
+
+    public void Damaged(string hitSide)
     {
         //We are hit
         damage = true;
-        Invoke(nameof(notDamaged), 0.1f);
+        print(hitSide);
+        knockback_side = hitSide;
+        Invoke(nameof(notDamaged), 0.15f);
     }
 
     private void notDamaged()
@@ -134,17 +184,28 @@ public class PlayerController : MonoBehaviour
         damage = false;
     }
 
+    private void AttackActive(InputAction.CallbackContext context)
+    {
+        if (attack_debounce > 0) return;
+        GameObject spawnedObject;
+
+        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        if (moveInput.x == 0 && moveInput.y == 0)
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(0, 0, 1.5f), Quaternion.identity);
+        else
+            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+
+        attack_debounce = 0.4f;
+        Destroy(spawnedObject, 0.1f);
+    }
+
     private void DodgeActive(InputAction.CallbackContext context)
     {
+        if (dodge_debounce > 0) return;
         //We have dodged
         Speed = Speed * 7;
+        dodge_debounce = 1f;
         Invoke(nameof(resetDodge), 0.05f);
-        canDodge = false;
-    }
-    private void DodgeReleased(InputAction.CallbackContext context)
-    {
-        //Can dodge now after we have released the dodge button
-        canDodge = true;
     }
 
     private void resetDodge()
@@ -159,7 +220,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayDist, floorMask))
-            transform.up = hit.normal;
+            transform.up = Vector3.Slerp(transform.up, hit.normal, 0.8f);
         else
             transform.up = Vector3.up;
     }
