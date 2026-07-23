@@ -36572,6 +36572,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7204695734148426986, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_Name
       value: Enemy Placeholder
