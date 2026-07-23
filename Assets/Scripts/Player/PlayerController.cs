@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
         controls.Gameplay.Attack.started += AttackActive;
+        
     }
 
     private void OnDisable()
@@ -107,7 +108,6 @@ public class PlayerController : MonoBehaviour
                 PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
             }
         }
-
 
         if (dodge_debounce > 0)
             dodge_debounce -= 1f * Time.deltaTime;
