@@ -14,8 +14,14 @@ public class EnemyManager : MonoBehaviour
         if (attack_debounce > 0)
             attack_debounce -= 1f * Time.deltaTime;
         
-        agent.SetDestination(Player.position);
-        transform.LookAt(Player);
+        if (Vector3.Distance(transform.position, Player.position) <= 10f)
+        {
+            Debug.Log("CLOSE");
+            agent.SetDestination(Player.position);
+            transform.LookAt(Player);
+        }
+
+
 
         if (!agent.pathPending)
         {
