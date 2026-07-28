@@ -16,20 +16,17 @@ public class EnemyManager : MonoBehaviour
         
         if (Vector3.Distance(transform.position, Player.position) <= 10f)
         {
-            Debug.Log("CLOSE");
             agent.SetDestination(Player.position);
             transform.LookAt(Player);
-        }
 
-
-
-        if (!agent.pathPending)
-        {
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (!agent.pathPending)
             {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                if (agent.remainingDistance <= agent.stoppingDistance)
                 {
-                    AttackActive();
+                    if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                    {
+                        AttackActive();
+                    }
                 }
             }
         }

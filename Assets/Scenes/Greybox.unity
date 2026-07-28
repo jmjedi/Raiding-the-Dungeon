@@ -1056,6 +1056,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -21602,7 +21606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 573940160}
-  offset: {x: 0, y: 5, z: 5}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!81 &317517572
 AudioListener:
   m_ObjectHideFlags: 0
@@ -21642,11 +21646,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -25
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -21670,13 +21674,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317517570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.97629607, z: -0.2164396, w: 0}
+  m_LocalRotation: {x: 0.09054794, y: 0.88675517, z: -0.19658904, w: 0.40843505}
   m_LocalPosition: {x: 0.9138584, y: 0.9001274, z: 0.40903467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 25, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 130.539, z: 0}
 --- !u!1 &328171963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1225917595031428262, guid: 1e258b937dffa11478346af411d38848, type: 3}
@@ -22302,6 +22306,10 @@ PrefabInstance:
     - target: {fileID: 500996887509829310, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
@@ -36510,6 +36518,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -38848,6 +38860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -39297,6 +39313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -39457,6 +39477,10 @@ PrefabInstance:
     - target: {fileID: 500996887509829310, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
@@ -49806,6 +49830,10 @@ PrefabInstance:
     - target: {fileID: 500996887509829310, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
@@ -66848,6 +66876,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -66920,6 +66952,10 @@ PrefabInstance:
     - target: {fileID: 500996887509829310, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
@@ -73218,7 +73254,7 @@ GameObject:
   - component: {fileID: 1574515781}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76864,6 +76900,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
       value: 2.5
@@ -80244,6 +80284,10 @@ PrefabInstance:
     - target: {fileID: 500996887509829310, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861574100655109281, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3645800106271538364, guid: 5d2e3d8a8e2436d4f8f9a659ff89cf41, type: 3}
       propertyPath: m_StoppingDistance
