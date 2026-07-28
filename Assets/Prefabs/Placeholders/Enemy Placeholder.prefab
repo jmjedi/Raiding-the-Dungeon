@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1861574100655109281}
   - component: {fileID: 5677897046427595381}
   - component: {fileID: 3645800106271538364}
-  - component: {fileID: 8719658375276144247}
   m_Layer: 0
   m_Name: Enemy Placeholder
   m_TagString: Untagged
@@ -104,7 +103,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Height: 2
@@ -123,8 +122,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3645800106271538364}
-  Player: {fileID: 1536035118870814539, guid: c2f7801d7ec72b4449609297943d42f8, type: 3}
-  attackObj: {fileID: 6018870660468512954, guid: c9569119e6099ce4ea920a18ade67397, type: 3}
+  Player: {fileID: 0}
+  attackObj: {fileID: 0}
 --- !u!195 &3645800106271538364
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -147,25 +146,3 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!64 &8719658375276144247
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7204695734148426986}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
