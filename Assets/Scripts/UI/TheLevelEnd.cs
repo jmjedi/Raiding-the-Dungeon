@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TheLevelEnd : MonoBehaviour
 {
     public string sceneName;
-
-    void OnTriggerEnter(Collider c)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (c.tag == "Player")
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        if (collision.gameObject.CompareTag("Player")) //Check if hitbox is touching player
+        {
+            SceneManager.LoadScene(2);
+            Destroy(gameObject);
+        }
     }
 }
