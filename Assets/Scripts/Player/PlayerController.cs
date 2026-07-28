@@ -10,15 +10,18 @@ public class PlayerController : MonoBehaviour
     //Get player Values
     private PlayerInput controls;
     private Vector2 moveInput;
-    private Vector3 PlayerMovementInput;
+    public float verticalInput;
+    public float horizontalInput;
     private PlayerUI plrUI;
     public float Gold = 0f;
+    private Vector3 moveDir;
 
     //Get Components
     [Header("OBJECT REQUIREMENTS")]
     [SerializeField] private Rigidbody PlayerBody;
     [SerializeField] private Transform FeetTransform;
     [SerializeField] private GameObject attackOBJ;
+    [SerializeField] private Transform cameraObj;
 
     [Header("PLAYER VALUES")]
     [SerializeField] private float Speed;
@@ -50,12 +53,17 @@ public class PlayerController : MonoBehaviour
     {
         //Get Controls
         controls = new PlayerInput();
+        cameraObj = Camera.main.transform;
     }
 
     private void OnEnable()
     {
         //Enable Controls
         controls.Gameplay.Enable();
+
+        controls.Gameplay.Move.performed += i => moveInput = i.ReadValue<Vector2>();
+        controls.Gameplay.Move.canceled += i => moveInput = Vector2.zero;
+
 
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
@@ -70,61 +78,33 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //Get player input stick
-        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-        PlayerMovementInput = new Vector3(moveInput.x, 0, moveInput.y);
-
-        Vector3 moveVector = transform.TransformDirection(PlayerMovementInput) * Speed;
-        //Check if we are on a slope to slow down player
-        if (isOnSlope)
-        {
-            if (PlayerBody.velocity.y < 0) //Going up
-                moveVector = Vector3.ProjectOnPlane(moveVector, slopeHit.normal).normalized * Speed;
-            else //Going down
-                moveVector = Vector3.ProjectOnPlane(moveVector, slopeHit.normal).normalized * Speed;
-            PlayerBody.velocity = moveVector;
-        }
-        else
-        {
-            if (damage) //If we have been hit, push the player away from the hitbox
-            {
-                if (knockback_side == "Left") //Move right
-                    PlayerBody.AddForce(transform.right * hitKnockback, ForceMode.Impulse);
-                else if (knockback_side == "Right") //Move Left
-                    PlayerBody.AddForce(-transform.right * hitKnockback, ForceMode.Impulse);
-                else if (knockback_side == "Back") // Move back
-                    PlayerBody.AddForce(transform.forward * hitKnockback, ForceMode.Impulse);
-                else if (knockback_side == "Front") // Move Foward
-                    PlayerBody.AddForce(-transform.forward * hitKnockback, ForceMode.Impulse);
-                else if (knockback_side == "Top") //Move Up (UNUSED)
-                    PlayerBody.AddForce(transform.up * hitKnockback, ForceMode.Impulse);
-                else if (knockback_side == "Bottom") // Move Down (UNUSED)
-                    PlayerBody.AddForce(-transform.up * hitKnockback, ForceMode.Impulse);
-            }
-            else
-            {
-                //Normal Velocity
-                PlayerBody.velocity = new Vector3(moveVector.x, PlayerBody.velocity.y, moveVector.z);
-            }
-        }
-
-
         if (dodge_debounce > 0)
             dodge_debounce -= 1f * Time.deltaTime;
 
         if (attack_debounce > 0)
             attack_debounce -= 1f * Time.deltaTime;
 
+        //Manage Player Inputs
+        HandleMovement();
+        HandleRotation();
+
         //Use check ground function
         CheckGroundAndSlope();
-        newFloorAlign();
+        //newFloorAlign();
+
+        HandleAllInputs();
+    }
+
+    private void HandleAllInputs()
+    {
+        verticalInput = -moveInput.y;
+        horizontalInput = -moveInput.x;
     }
 
     private void FixedUpdate()
     {
         //Player Gravity
-        Vector3 gravityForce = Physics.gravity * FallForce;
-        PlayerBody.AddForce(gravityForce, ForceMode.Acceleration);
+
     }
 
     private void CheckGroundAndSlope()
@@ -189,11 +169,7 @@ public class PlayerController : MonoBehaviour
         if (attack_debounce > 0) return;
         GameObject spawnedObject;
 
-        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-        if (moveInput.x == 0 && moveInput.y == 0)
-            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(0, 0, 1.5f), Quaternion.identity);
-        else
-            spawnedObject = Instantiate(attackOBJ, transform.position + new Vector3(moveInput.x * 3, 0, moveInput.y * 2), Quaternion.identity);
+        spawnedObject = Instantiate(attackOBJ, transform.position + -transform.forward * 2f, transform.rotation);
 
         attack_debounce = 0.4f;
         Destroy(spawnedObject, 0.1f);
@@ -212,6 +188,36 @@ public class PlayerController : MonoBehaviour
     {
         //Reset player dodge state
         Speed = Speed / 7;
+    }
+
+    private void HandleMovement()
+    {
+        moveDir = cameraObj.forward * verticalInput;
+        moveDir = moveDir + cameraObj.right * horizontalInput;
+        moveDir.Normalize();
+        moveDir.y = 0;
+        moveDir = moveDir * Speed;
+
+        Vector3 movementVel = moveDir;
+        PlayerBody.velocity = movementVel;
+    }
+
+    private void HandleRotation()
+    {
+        Vector3 targetDir = Vector3.zero;
+
+        targetDir = cameraObj.forward * verticalInput;
+        targetDir = targetDir + cameraObj.right * horizontalInput;
+        targetDir.Normalize();
+        targetDir.y = 0;
+
+        if (targetDir == Vector3.zero)
+            targetDir = transform.forward;
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDir);
+        Quaternion plrRotation = Quaternion.Slerp(transform.rotation, targetRotation, 15 * Time.deltaTime);
+
+        transform.rotation = plrRotation;
     }
 
     private void newFloorAlign() //UNUSED
