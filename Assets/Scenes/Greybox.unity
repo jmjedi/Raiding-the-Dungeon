@@ -71385,6 +71385,10 @@ PrefabInstance:
       propertyPath: hitKnockback
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 4252272545342358729, guid: c2f7801d7ec72b4449609297943d42f8, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 6007662471566062026, guid: c2f7801d7ec72b4449609297943d42f8, type: 3}
       propertyPath: m_Name
       value: Character
