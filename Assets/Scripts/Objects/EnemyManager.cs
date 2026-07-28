@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
-using UnityEngine.ProBuilder.Shapes;
-using UnityEngine.UIElements;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -18,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (attack_debounce > 0)
             attack_debounce -= 1f * Time.deltaTime;
-
+        
         agent.SetDestination(Player.position);
         transform.LookAt(Player);
 
