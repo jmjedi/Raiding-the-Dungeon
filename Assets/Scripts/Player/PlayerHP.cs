@@ -27,12 +27,12 @@ public class PlayerHP : MonoBehaviour
         //Update Debounce Values
         PlayerController playerControl = GetComponent<PlayerController>();
         if (hit_debounce > 0)
+        {
             hit_debounce -= 1 * Time.deltaTime;
-        else
-            playerControl.ResetBlink();
-    }
+        }
+     }
 
-    public void Damage(float Damage, string hitSide)
+    public void Damage(float Damage)
     {
         //Lose player HP
         if (hit_debounce > 0) return;
@@ -40,11 +40,10 @@ public class PlayerHP : MonoBehaviour
         HP -= Damage;
         hit_debounce = 2f;
         PlayerController playerControl = GetComponent<PlayerController>();
-        playerControl.BlinkChar();
         plrUI.ChangeHP(HP);
-        
+
         if (playerControl != null)
-            playerControl.Damaged(hitSide);
+            playerControl.Damaged();
         else
             print("NO PLAYER CONTROL");
 
