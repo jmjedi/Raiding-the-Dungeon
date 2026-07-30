@@ -8,10 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<<< HEAD:My project/Library/PackageCache/com.unity.timeline@1.7.6/Samples~/Customization/Demo/Animation/Staff.prefab
   - component: {fileID: 3136781223424365430}
   - component: {fileID: 5354966565054127691}
   - component: {fileID: 9072807410560229933}
   - component: {fileID: 7686257269423640091}
+========
+  - component: {fileID: 500996887509829310}
+  - component: {fileID: 5414267817357456726}
+  - component: {fileID: 5598416507061686616}
+  - component: {fileID: 1861574100655109281}
+  - component: {fileID: 5677897046427595381}
+  - component: {fileID: 3645800106271538364}
+>>>>>>>> origin/JamesBranch2:Assets/Prefabs/Placeholders/Enemy Placeholder.prefab
   m_Layer: 0
   m_Name: Staff
   m_TagString: Untagged
@@ -93,4 +102,45 @@ CapsuleCollider:
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
+<<<<<<<< HEAD:My project/Library/PackageCache/com.unity.timeline@1.7.6/Samples~/Customization/Demo/Animation/Staff.prefab
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+========
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5677897046427595381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204695734148426986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d80dc1c429d6a4e8b2d772a1504ffd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 3645800106271538364}
+  Player: {fileID: 0}
+  attackObj: {fileID: 0}
+--- !u!195 &3645800106271538364
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204695734148426986}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+>>>>>>>> origin/JamesBranch2:Assets/Prefabs/Placeholders/Enemy Placeholder.prefab

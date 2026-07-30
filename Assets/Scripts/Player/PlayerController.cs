@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder.MeshOperations;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
     //Get player Values
     private PlayerInput controls;
+    private PlayerHP plrHP;
+    public MeshRenderer meshRender;
     private Vector2 moveInput;
     public float verticalInput;
     public float horizontalInput;
@@ -54,6 +57,8 @@ public class PlayerController : MonoBehaviour
         //Get Controls
         controls = new PlayerInput();
         cameraObj = Camera.main.transform;
+        meshRender = GetComponent<MeshRenderer>();
+        plrHP = GetComponent<PlayerHP>();
     }
 
     private void OnEnable()
@@ -83,6 +88,9 @@ public class PlayerController : MonoBehaviour
 
         if (attack_debounce > 0)
             attack_debounce -= 1f * Time.deltaTime;
+
+        if (plrHP.hit_debounce <= 0)
+            meshRender.enabled = true;
 
         //Manage Player Inputs
         HandleMovement();
@@ -131,30 +139,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void BlinkChar()
-    {
-       //InvokeRepeating("StartBlink", 0, 0.4f);
-    }
-
-    private void StartBlink()
-    {
-        print("BLINKING");
-        Renderer targetRender = GetComponent<Renderer>();
-        targetRender.enabled = !targetRender;
-    }
-
-    public void ResetBlink()
-    {
-        Renderer targetRender = GetComponent<Renderer>();
-        targetRender.enabled = true;
-    }
-
-    public void Damaged(string hitSide)
+    public void Damaged()
     {
         //We are hit
         damage = true;
-        print(hitSide);
-        knockback_side = hitSide;
+        StartCoroutine(BlinkRoutine());
         Invoke(nameof(notDamaged), 0.15f);
     }
 
@@ -162,6 +151,15 @@ public class PlayerController : MonoBehaviour
     {
         //Reset hit flag
         damage = false;
+    }
+
+    public IEnumerator BlinkRoutine()
+    {
+        while (plrHP.hit_debounce > 0)
+        {
+            meshRender.enabled = !meshRender.enabled;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     private void AttackActive(InputAction.CallbackContext context)
@@ -198,8 +196,15 @@ public class PlayerController : MonoBehaviour
         moveDir.y = 0;
         moveDir = moveDir * Speed;
 
-        Vector3 movementVel = moveDir;
-        PlayerBody.velocity = movementVel;
+        if (damage)
+        {
+            PlayerBody.AddForce(Vector3.forward * 10f, ForceMode.Acceleration);
+        }
+        else
+        {
+            Vector3 movementVel = moveDir;
+            PlayerBody.velocity = movementVel;
+        }
     }
 
     private void HandleRotation()

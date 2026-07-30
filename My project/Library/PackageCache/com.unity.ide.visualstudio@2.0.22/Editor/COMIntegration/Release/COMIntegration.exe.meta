@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:My project/Library/PackageCache/com.unity.ide.visualstudio@2.0.22/Editor/COMIntegration/Release/COMIntegration.exe.meta
 guid: cb67edc1800c2ec4ba8dfb1cf0dfc84a
+========
+guid: ccaa4bba5573ae4428f1b03eceec3550
+>>>>>>>> origin/JamesBranch2:Assets/Enemies/sloim.vox.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
