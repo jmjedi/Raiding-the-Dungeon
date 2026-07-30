@@ -13,12 +13,13 @@ public class PlayerAttackHitbox : MonoBehaviour
         plrUI = Object.FindAnyObjectByType<PlayerUI>();
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Enemy")) //Check if hitbox is touching player
+        if (other.gameObject.CompareTag("Enemy")) //Check if hitbox is touching player
         {
+            print("KILL IT WITH FIRE");
             plrUI.ChangeGold(5);
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
     }
 
