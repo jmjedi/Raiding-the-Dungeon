@@ -7,12 +7,13 @@ public class DamageTest : MonoBehaviour
 {
     [SerializeField] private float damage = 10;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player")) //Check if hitbox is touching player
+        if (other.gameObject.CompareTag("Player")) //Check if hitbox is touching player
         {
             string dir = null;
-            Vector3 normal = collision.GetContact(0).normal;
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
+            Vector3 normal = (transform.position - contactPoint).normalized;
 
             if (Mathf.Abs(normal.y) > 0.5f)
             {
@@ -30,7 +31,7 @@ public class DamageTest : MonoBehaviour
                 else dir = "Back";
             }
 
-            PlayerHP playerHP = collision.gameObject.GetComponent<PlayerHP>(); //Get player hp
+            PlayerHP playerHP = other.gameObject.GetComponent<PlayerHP>(); //Get player hp
             if (playerHP != null)
                 playerHP.Damage(damage, dir); //Damage player
             else
