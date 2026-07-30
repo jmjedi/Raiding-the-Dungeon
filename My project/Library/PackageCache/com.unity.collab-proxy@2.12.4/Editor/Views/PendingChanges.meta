@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:My project/Library/PackageCache/com.unity.collab-proxy@2.12.4/Editor/Views/PendingChanges.meta
 guid: 5d558eb582a19cf46b06976fb93d7896
+========
+guid: 5850dbcd6a2f7f94d879070689712c9c
+>>>>>>>> origin/JamesBranch2:Assets/Enemies.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
