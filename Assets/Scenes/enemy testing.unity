@@ -527,14 +527,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533357885}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13052596, y: -0.99144495, z: -0.00000004667971, w: -0.00000035456833}
+  m_LocalRotation: {x: 3.310228e-14, y: -1, z: -2.8421706e-14, w: -0.00000035762784}
   m_LocalPosition: {x: 4.02, y: 7.4, z: -3.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1740695869}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 15}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1001 &1418011909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -557,19 +557,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99144495
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -2.8421706e-14
+      value: 1.4210877e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 2.8421706e-14
+      value: 2.842171e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.13052596
+      value: 6.620455e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -581,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: f456096fe9ee6c947bc062cd690740f2, type: 3}
       propertyPath: m_Materials.Array.data[0]
