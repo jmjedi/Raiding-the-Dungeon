@@ -16,9 +16,10 @@ public class PlayerAttackHitbox : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("Work now plz");
-        if (other.gameObject.CompareTag("Enemy")) //Check if hitbox is touching player
+        if (other.gameObject.CompareTag("Enemy"))
         {
             print("KILL IT WITH FIRE");
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
             plrUI.ChangeGold(5);
             Destroy(other.gameObject);
         }

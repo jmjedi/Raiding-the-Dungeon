@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Start Menu.unity
     guid: f5c36b9adbb8ab74baa62786f7d536cd
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 22c7c3bd61b9b7e4ca571e5ec63b22b6
+    path: Assets/Scenes/Greybox.unity
+    guid: 41d366b1e609d2f46857a136eeaac68c
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 8607f79aa9db9c94eaad7cef86d4850f
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 22c7c3bd61b9b7e4ca571e5ec63b22b6
   m_configObjects: {}
