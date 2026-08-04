@@ -25,6 +25,7 @@ public class timerScript : MonoBehaviour
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
         currentTimeText.text = time.Minutes.ToString() + ": " + time.Seconds.ToString();
+        PlayerPrefs.SetInt("Seconds", time.Seconds);
     }
 
   public void StartStopwatch()

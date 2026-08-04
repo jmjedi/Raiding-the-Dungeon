@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
         cameraObj = Camera.main.transform;
         meshRender = GetComponent<MeshRenderer>();
         plrHP = GetComponent<PlayerHP>();
+
+        PlayerPrefs.SetFloat("Gold", 0f);
+        PlayerPrefs.SetFloat("HP", 0f);
     }
 
     private void OnEnable()
