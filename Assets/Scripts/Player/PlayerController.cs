@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Move.performed += i => moveInput = i.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += i => moveInput = Vector2.zero;
 
-
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
         controls.Gameplay.Attack.started += AttackActive;

@@ -10,6 +10,7 @@ public class TheLevelEnd : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //Check if hitbox is touching player
         {
+            print("SWITCH");
             SceneManager.LoadScene(2);
             Destroy(gameObject);
         }
