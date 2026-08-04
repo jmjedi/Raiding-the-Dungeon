@@ -41758,6 +41758,37 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &882448806 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 233201702475973869, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
+  m_PrefabInstance: {fileID: 1965838590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &882448807
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882448806}
+  m_CullTransparentMesh: 1
+--- !u!224 &882448812 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5240057895916044250, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
+  m_PrefabInstance: {fileID: 1965838590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &882448813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882448806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d97f74cac6d36f4a80486768847cd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTimeText: {fileID: 1673337983}
 --- !u!1001 &882636346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74993,6 +75024,85 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1673337981
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673337982}
+  - component: {fileID: 1673337984}
+  - component: {fileID: 1673337983}
+  m_Layer: 5
+  m_Name: Big Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1673337982
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673337981}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 882448812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -444.87646, y: 130.65271}
+  m_SizeDelta: {x: 224.107, y: 58.1918}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1673337983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673337981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8a91db6ff7f4e3f4eafc3e86a8ffe570, type: 3}
+    m_FontSize: 55
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0:00:000
+--- !u!222 &1673337984
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673337981}
+  m_CullTransparentMesh: 1
 --- !u!43 &1679028134
 Mesh:
   m_ObjectHideFlags: 0
@@ -82284,8 +82394,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5240057895916044250, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1673337982}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 233201702475973869, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 882448807}
+    - targetCorrespondingSourceObject: {fileID: 233201702475973869, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 882448813}
   m_SourcePrefab: {fileID: 100100000, guid: fc7a8b9b575bd2e44a5cb5ae374add72, type: 3}
 --- !u!43 &1987551095
 Mesh:
