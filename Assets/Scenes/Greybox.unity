@@ -39346,6 +39346,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &745673298 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3472008600376421340, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+  m_PrefabInstance: {fileID: 1449854801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &752880838
 Mesh:
   m_ObjectHideFlags: 0
@@ -41706,6 +41711,10 @@ PrefabInstance:
     - target: {fileID: 1539882328317438515, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604614872864892105, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.3312306
       objectReference: {fileID: 0}
     - target: {fileID: 1995780586627208713, guid: ebee443843e5f8e48a5b40e5595fe875, type: 3}
       propertyPath: m_Mesh
@@ -68232,6 +68241,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4371715430742284091, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 507815782}
+    - targetCorrespondingSourceObject: {fileID: 3472008600376421340, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2097034116}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 344565127094985098, guid: 3739855ac88e2a847b926ff7ace114f3, type: 3}
       insertIndex: -1
@@ -84154,6 +84166,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3659877f5cefc3543ad60e945182758b, type: 3}
   m_PrefabInstance: {fileID: 2055802916}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2097034115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097034116}
+  - component: {fileID: 2097034118}
+  - component: {fileID: 2097034117}
+  m_Layer: 0
+  m_Name: default (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097034116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097034115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.8867928, y: 0, z: 0.00000003973643}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745673298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &2097034117
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097034115}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -8469494145858465668, guid: 9ae38d8efc64b254ab19150ba12a4a47, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2097034118
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097034115}
+  m_Mesh: {fileID: -2432090755550338912, guid: 9ae38d8efc64b254ab19150ba12a4a47, type: 3}
 --- !u!1001 &2125446551
 PrefabInstance:
   m_ObjectHideFlags: 0
