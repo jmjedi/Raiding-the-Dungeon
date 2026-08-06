@@ -24,8 +24,10 @@ public class timerScript : MonoBehaviour
             currentTime = currentTime + Time.deltaTime;
         }
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        PlayerPrefs.SetFloat("Seconds", time.Seconds);
+        PlayerPrefs.SetFloat("Minuets", time.Minutes);
         currentTimeText.text = time.Minutes.ToString() + ": " + time.Seconds.ToString();
-        PlayerPrefs.SetInt("Seconds", time.Seconds);
+        PlayerPrefs.SetString("Time", currentTimeText.text);
     }
 
   public void StartStopwatch()
