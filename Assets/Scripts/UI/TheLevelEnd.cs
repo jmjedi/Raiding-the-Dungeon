@@ -11,6 +11,8 @@ public class TheLevelEnd : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) //Check if hitbox is touching player
         {
             print("SWITCH");
+            PlayerPrefs.SetFloat("Gold", collision.gameObject.GetComponent<PlayerController>().Gold);
+            PlayerPrefs.SetFloat("HP", collision.gameObject.GetComponent<PlayerHP>().HP);
             SceneManager.LoadScene(2);
             Destroy(gameObject);
         }

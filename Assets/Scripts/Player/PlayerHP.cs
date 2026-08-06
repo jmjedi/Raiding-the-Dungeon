@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHP : MonoBehaviour
 {
     public float maxHP = 100;
-    private float HP;
+    public float HP;
     public float hit_debounce;
     private PlayerUI plrUI;
 
