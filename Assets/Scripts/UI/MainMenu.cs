@@ -14,9 +14,6 @@ public class LevelEnd : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
-    }
+    }     
         
-        
-        
-        
-        }
+}

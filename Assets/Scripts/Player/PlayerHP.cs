@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHP : MonoBehaviour
 {
     public float maxHP = 100;
-    private float HP;
+    public float HP;
     public float hit_debounce;
     private PlayerUI plrUI;
 
@@ -50,8 +51,7 @@ public class PlayerHP : MonoBehaviour
         if (HP <= 0) //We are dead
         {
             HP = 0;
-            print("YOU DIED YOU DONKEY");
-            //GET SCENE MANAGER HERE
+            SceneManager.LoadScene(4);
         }
     }
 }

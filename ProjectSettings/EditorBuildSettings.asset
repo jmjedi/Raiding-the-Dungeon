@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: 8607f79aa9db9c94eaad7cef86d4850f
+  - enabled: 1
+    path: Assets/Scenes/Greybox.unity
+    guid: 41d366b1e609d2f46857a136eeaac68c
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: ab2ff09350d4c4f4e988670343609bf8
+  - enabled: 0
+    path: Assets/Scenes/ResultsScreen.unity
+    guid: 70608cb3c0f61b340a96f4bc2b119785
   m_configObjects: {}

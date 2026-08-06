@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
         cameraObj = Camera.main.transform;
         meshRender = GetComponent<MeshRenderer>();
         plrHP = GetComponent<PlayerHP>();
+
+        PlayerPrefs.SetFloat("Gold", 0f);
+        PlayerPrefs.SetFloat("HP", 0f);
     }
 
     private void OnEnable()
@@ -68,7 +71,6 @@ public class PlayerController : MonoBehaviour
 
         controls.Gameplay.Move.performed += i => moveInput = i.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += i => moveInput = Vector2.zero;
-
 
         //Keybinds Enabled
         controls.Gameplay.Dodge.started += DodgeActive;
